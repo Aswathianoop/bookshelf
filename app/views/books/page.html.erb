@@ -1,0 +1,55 @@
+<center>
+<body>
+<h1>Listing books</h1>
+
+<table border="1" style="width:50%" border="1" cellspacing="0" cellpadding="10" id="c"></center>
+
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Author</th>
+      <th>Comments</th>
+      <th>Actions</th>
+      <th>Actions</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @book.each do |book| %>
+      <tr>
+        <td><%= book.name %></td>
+       <%#= error_messages_for 'book' %>
+
+
+        <td><%= book.author %></td>
+        <td><%= book.comments %></td>
+        <td>
+        <%= link_to book_path(book) do %>
+          <%= image_tag("show.png", :style => 'width: 30px;height:30px;')%>
+          <% end %>
+        </td>
+
+        <td>
+        <%= link_to edit_book_path(book) do %>
+        
+        <%= link_to image_tag(asset_path "edit.png", :style => 'width: 30px;height:30px;'), edit_book_path(book) %>
+          <%#= image_tag("edit.png", :style => 'width: 30px;height:30px;')%>
+         <% end %>
+        </td>
+
+        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%#= link_to image_tag(asset_path "destroy.png", :style => 'width: 30px;height:30px;'},book_path(book)%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+<%= link_to 'new book', new_book_path %>
+</body></center >
+
