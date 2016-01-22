@@ -3,7 +3,7 @@ class BooksController < ApplicationController
 
   #http_basic_authenticate_with name: "asdfgh", password: "qwerty", except: [:page, :show]
  
-
+	#changes done by niladri
  	
  	def page
  		@book = Book.all
